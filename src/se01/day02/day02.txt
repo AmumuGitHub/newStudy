@@ -1,0 +1,102 @@
+正则表达式中的特殊字符:
+
+[]:表示其中的内容只能选其一
+   一个[]表示一个字符
+   例如:[abc] 表示:要么是a要么是b要么是c
+
+[^abc]:表示一个不是a,b,c的任意字符
+[a-z]:"-"表示范围,左面是小值,右面是大值
+         表示任意一个小写字母
+
+[0-9]:表示任意一个数字
+
+[0-9a-zA-Z]:表示任意一个数字或字母
+
+[a-z&&[^bc]]:任意小写字母,但不能是b或c
+
+ .   : "点儿" 表示任意一个字符
+\d : 表示任意一个数字 等同于 [0-9]
+\D: 表示任意一个非数字字符 等同[^0-9]
+\s : 表示任意一个空白字符
+\S : 表示任意一个非空白字符
+\w: 表示任意一个单词字符 [0-9a-zA-Z_]
+\W: 表示任意一个非单词字符
+
+正则表达式中的量词
+
+? : 表示前面的内容出现0-1次
+     [abc]?:表示这里可以出现一个a或b或c,不出                 现也可以
+
+* : 表示前面的内容出现 0-若干次
+     [abc]*:表示可以出现任意个a或b或c 
+                abcbacbabcbcabcba
+
++:表示前面的内容出现 1-若干次 
+     [abc]+:表示至少要出现一次a或b或c
+
+{n} :n是一个数字,表示前面的内容必须出现n次
+     [abc]{6}:表示abc的组合要出现6次
+             aabcac     通过
+             abbabaa  不通过
+
+{n,m} : n与m均为数字,表示前面的内容出现
+           n-m次.
+
+{n,}   : 表示前面的内容出现至少n次
+
+
+() : 可以将其中内容看作一个整体
+
+(\.com)* : 表示".com"出现若干次
+ \.com*  : 表示".co"之后"m"可以出现若干次
+
+()中可以出现"|"关系,表示选其一
+   例如:
+   (\.com|\.cn|\.com\.cn)
+  表示这里可以出现: .com或.cn或.com.cn
+
+在正则表达式中出现的非特殊含义的字符时就按原意匹配
+
+\w+@\w+[(\.com)(\.cn)(\.com\.cn)]
+
+java中的字符串对正则表达式的支持
+
+匹配字符串格式的matches()方法
+
+使用正则表达式用于拆分字符串的split()方法
+
+以及用于替换字符串的replaceAll()方法
+
+commons-lang
+
+Apache组织  开源软件
+
+commons-lang用于补充jdk中java.lang包下的类的一些功能.
+
+用于补充java.lang.String类功能的类
+
+StringUtils提供的用于扩展String功能的方法都是静态方法,所以无须实例化StringUtils
+
+
+
+StringBuilder用于频繁修改字符串的类
+
+StringBuffer的用法与StringBuilder一模一样
+StringBuffer出现的比StringBuilder早
+
+StringBuffer从JDK1.0开始支持
+StringBuilder从JDK1.5开始支持
+
+StringBuffer是线程安全的
+StringBuilder不是线程安全的
+
+Date类
+用于描述时间的类
+java.util.Date
+
+SimpleDateFormat类
+用于按照特定的格式使String与Date之间相互转换
+
+
+DateFormat类
+是SimpleDateFormat的父类

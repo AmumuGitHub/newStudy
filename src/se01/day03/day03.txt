@@ -1,0 +1,96 @@
+身份证号的正则表达式
+\d{15}(\d{2}[0-9xX])?
+
+Calendar类
+日历类
+用于计算和操作时间的类
+Calendar是抽象类,不能直接实例化
+它派生了很多子类实现.
+
+
+String                Date                 Calendar      三者之间的转换方式
+
+String ==> Date 
+使用SimpleDateFormat的parse()方法           
+
+Date   ==> Calendar
+使用Calendar的setTime(Date date)
+
+
+Calendar ==> Date
+使用Calendar的getTime()方法
+
+Date ==> String
+使用SimpleDateFormat的format()
+
+
+对基本类型的重新讨论
+
+int a = 1 + 2 + 3;
+
+基本类型如何参与面向对象开发?
+
+为了让基本类型可以参与面向对象开发
+java对8个基本类型提供了包装类
+
+基本类型                          包装类
+byte                               Byte
+short                              Short
+int                                  Integer
+long                               Long
+char                               Character
+float                               Float
+double                           Double
+boolean                         Boolean
+
+包装类主要有两个作用
+1:可以将基本类型数据作为对象去看待
+  并且在java 1.5之后支持了自动拆装箱,在程序编译的过程中,会自动将需要转换的语句转换好.
+
+2:可以将字符串转换为基本类型数据
+
+java.math
+
+BigDecimal类
+可用于描述非常精确的小数,并可以进行非常精确的小数运算.
+
+BigInteger类
+用于描述一个非常大的整数.
+
+java中的集合框架
+用于保存一组数据的数据结构
+
+Collection接口
+该接口是所有集合的父接口
+
+java将集合分为了两大类
+List与Set
+
+List接口:元素可重复集,且有序.
+
+Set接口:不可重复集. 无序
+ 
+
+Collection中定义的方法
+
+int size():返回当前集合的元素总量
+boolean isEmpty():判断集合中是否存有元素
+
+boolean contains(Object o):判断当前集合是否包含给定的元素
+
+void clear():清空集合
+
+boolean add(E e):向集合中添加元素
+
+boolean remove(Object o):从集合中删除给定的元素
+
+boolean addAll(Collection c):将给定集合中的所有元素添加到当前集合
+
+boolean removeAll(Collection c ):
+删除当前集合中与给定集合中相同的元素
+
+Iterator iterator():返回用于遍历当前集合的迭代器
+
+List集合
+两个常用实现类
+ArrayList 和 LinkedList

@@ -1,0 +1,237 @@
+Linux 简介
+ 
+熟悉Linux 就意味着， 你熟悉Linux命令！
+熟悉Linux命令界面
+
+
+Windows 的文件系统(File System 缩写：fs)
+  C:\ (c盘 的根目录)
+   |-- Windows  <-当前工作目录
+   |     |-- System  
+   |     |     |-- AVICAP.DLL
+   |     |     |-- ....
+   |-- Program Files
+  D:\
+  e:\
+  f:\
+
+Linux 的文件系统
+  (相当于:只有c的Windows文件系统，而且省略了c:)
+   / (根目录)
+   |-- home 
+   |    |-- soft01  <-当前工作目录
+   |    |    |-- abc
+   |    |    |-- HelloWorld.java
+   |    |    |-- tom
+   |-- mnt
+   |    |-- sdcard
+
+  SD卡的"挂载点",是一个文件夹： /mnt/sdcard 
+
+  “目录” == “文件夹” 是完全一样的概念！
+  
+  当前工作目录
+
+  “资源管理器” 双击我的电脑打开的程序是：～
+
+命令：
+  pwd  打印当前工作目录
+  ls   默认列当前目录的内容
+  cd   改变当前工作目录 
+    如：cd ..  其中".." 表示上层目录 
+  mkdir 创建文件夹/目录的命令。
+    如：mkdir tom  在当前文件夹中创建子文件夹 tom
+
+用户主目录（User Home, 用户自己的家！）
+  当前用户在User Home文件夹中可以有最高的权限！
+  用户在其他系统文件夹中一般只能读取！
+  Linux User Home: 一般是 /home/userName
+  如: /home/soft01 就是 soft01 用户的 Home
+  实验：在用户主目录中可以创建文件夹
+        但是在系统的根目录/中不能创建文件夹
+ 
+~ 是User Home的缩写符号
+  
+  "cd" "cd ~" 都是 go home
+  
+  cd ~/tom
+
+绝对路径和相对路径
+  绝对路径: 从根目录算起的路径
+  相对路径: 从当前目录算起的路径
+
+  假如当前目录是 /home/soft01, tom 文件夹的位置:
+  相对路径: tom 
+  绝对路径：/home/soft01/tom 
+
+相对路径和绝对路径可以和很多Java命令配合
+   
+   cd tom  改变工作目录到 当前目录中的tom子目录
+   cd /home/soft01/tom 改变工作目录到 tom子目录
+ 
+实验: 验证相对路径和绝对路径
+  cd ~
+  pwd
+  ls
+  cd tom
+  pwd 
+  ls
+  cd tom  有错误的命令
+  cd /mnt
+  pwd
+  ls
+  cd /home/soft01/tom
+  pwd
+
+区别：根目录 与 用户主目录
+  根目录     root 
+  用户主目录 home
+
+没有： "用户根目录"
+  
+ 常用的目录缩写
+  ~  用户主目录
+  .. 上层目录，父目录
+  .  当前目录 
+  /  根目录
+
+rm  删除命令 
+  删除文件   rm file1 file2 ...
+  删除文件夹 rm -rf file1 file2 file3 ...
+    选项 -r 递归删除文件夹和子文件夹
+         -f 强制删除，不进行交互提示
+	    在Linux中默认是 -f 
+ 注意不要删：Desktop
+
+ 实验：
+   cd 
+   pwd
+   ls
+   rm -rf tom jerry 
+   ls
+
+ cp：复制文件、文件夹
+ 复制文件：cp 源文件 目标文件
+    源文件: 是相对、绝对路径表示，并且存在的文件
+           如果不存在有执行错误
+
+    目标文件：是相对、绝对路径表示的文件名
+          如果存在就覆盖文件，不存在就新建文件
+          如果是文件夹，就复制到文件夹中去！
+  实验：
+   cp /passwd  ~  错误，没有文件/passwd
+   cp /etc/passwd ~/passwd.bak 
+   ls ~
+   cp /etc/passwd ~
+   ls ~
+ 
+ 复制文件夹 cp -r 源文件夹  目标文件夹 
+   -r 是递归复制，复制文件夹和子文件夹
+   源文件夹：相对、绝对路径，必须存在
+   目标文件夹：相对、绝对路径，
+     1）如果存在目标文件夹将源文件夹复制到
+        文件夹里面去。
+     2）目标文件夹不存在，将原文件夹复制为目标为
+        目标文件夹
+  实验：
+   制作实验素材 demo
+    cd  改变当前工作目录到home  
+    ls  列当前目录的内容
+    mkdir demo 在当前目录中创建demo子文件夹！
+    mkdir demo/test 在当前目录demo创建子文件夹test
+    cp /etc/passwd demo 复制文件passwd到demo文件夹中
+    ls demo 列当前目录中demo文件夹的内容:test passwd
+   
+    cp -r demo demo.old 复制demo文件夹为demo.old文件夹
+    ls demo.old 文件夹的内容:test passwd
+    ls demo     文件夹的内容:test passwd
+
+    //cp -r /mnt/sdcard/photo ~/MyWorld
+
+    mkdir abcd  在当前目录中创建文件夹abcd
+    cp -r demo abcd 将demo复制到abcd文件夹中
+    ls abcd （abcd 中有demo文件夹）
+    ls abcd/demo (与原文件夹demo内容一样)
+    
+touch 创建新文件，空文件
+  touch file
+
+  实验：
+    cd 
+    pwd
+    ls  没有demo.txt
+    touch demo.txt
+    ls  有demo.txt
+
+ 区别: mkdir  touch
+   mkdir: 创建文件夹
+   touch：创建文件
+ 区别：ls  pwd
+   ls：显示文件夹内容  相当于文件夹内容列表
+   pwd : 显示当前的工作目录  “相当于地址栏”
+
+启动Java的开发工具 eclipse
+  eclipse: 日食，月食 
+  sun公司很有意见！
+
+eclipse 的安装
+  1) 下载资料： jdk + eclipse
+  
+  eclipse：下载Java开发版本就可以了
+
+ Windows：
+  32位 == X86 
+  64位 == x64  i64
+
+  32位OS + 32位JDK + 32位Eclipse 
+  64位OS + 32位JDK + 32位Eclipse 
+  64位OS + 64位JDK + 64位Eclipse 
+ 
+ 安装：
+   1) 安装JDK（下一步...）
+   2) 安装 Eclipse，是绿色软件，释放即可
+
+ Mac：
+  1) 执行java命令 自动安装JDK
+  2) 下载Mac版本的Eclipse
+  3) 安装 是绿色软件，释放即可
+
+启动Eclipse
+  cd /opt/eclipse
+  ls  包含一个可执行的文件 eclipse (绿色)
+  ./eclipse  .当前目录，执行当前目录中eclispe程序
+
+ 询问workspace(工作空间)：是开发结果的默认保存目录
+   默认： /home/soft01/workspace 
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+  
+  
+
+

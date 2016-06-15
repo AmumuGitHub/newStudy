@@ -1,0 +1,74 @@
+ArrayList与LinkedList
+
+ArrayList使用数组实现
+LinkedList使用链表实现
+
+当我们保存一组数据,不需要频繁做增删操作时,首选应该使用ArrayList
+
+若一组数据我们经常要对内容进行增删操作,那么应首选使用LinkedList
+
+Queue接口
+
+Deque是Queue的子接口
+双端队列.队列两端均可以出队和入队
+通常我们使用双端队列时,可以约束至从队列的一侧入队或出队,这样就形成了一种存取方式
+FILO(First Input Last Output)
+先进后出原则
+这种结构我们成为"栈"
+
+栈结构通常被用于对一系列的操作有可追溯性时使用.我们可以把其中的每一个环节作为栈中的一个元素压入栈中.这样,当我们随着pop每个元素,来追溯之前的每一个环节操作.
+
+Comparable接口
+实现该接口的类是可比较的
+实现该接口必须重写方法compareTo()
+该方法用于定义该类的对象间的比较规则
+
+Comparator接口
+用于当排序时,元素自定义的比较规则不满足我们的需要时,我们可以定义额外的比较器来用于排序.
+
+Set集合
+不可重复集
+相同的元素不能放入该集合两次
+相同元素:两个元素的equals比较结果为true
+
+两个实现类:
+HashSet:使用散列算法实现的Set集合
+TreeSet:使用二叉树实现的Set集合
+
+HashSet使用散列算法
+散列算法依赖每个元素的散列值
+
+Object中提供了一个方法
+int hashCode()
+
+重写hashCode()的规则:
+当我们重写equals方法时,应当同时重写hashCode()方法
+
+重写hashCode应注意:
+当两个对象的equals方法比较为true时,那么hashCode()返回的数字也应相同
+
+hashCode()返回的值应该是一个稳定的.
+
+若一个对象的属性内容发生了变化,那么hashCode()返回的值可以发生变化.
+
+
+Map 表
+Map看起来很像一个多行两列的表格
+
+其中一个数据包含两部分
+key - value
+键   -  值
+
+存放元素的方法
+V put(K k,V v)
+
+取元素的方法
+get(K k)  根据给定的key获取对应的value值
+
+Map要求,Key值不能重复
+put(key , 123123)
+put(key , 1111)
+
+
+Map是一个接口,我们使用的最常见实现类为
+HashMap

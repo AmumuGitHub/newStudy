@@ -1,0 +1,77 @@
+java的IO
+输入输出
+一切读写的根基
+
+File类
+java.io.File
+用于描述文件系统中的一个文件或目录的
+
+读写文件内容
+RandomAccessFile类
+用于读写文件内容
+
+JAVA IO流
+
+InputStream    输入流
+输入流用于读取数据
+
+OutputStream 输出流
+输出流用于写出数据
+
+
+
+流的分类
+高级流与低级流
+
+低级流又叫节点流
+数据的来源与取向明确
+
+高级流又叫处理流,过滤流
+不能独立存在,基于另一个流工作的.通常用来
+简化读写操作.
+
+
+流根据读写数据的单位划分
+1:字节流  以字节为单位读写数据
+2:字符流  以字符为单位读写数据
+
+
+用于读写文件的字节流
+FIS与FOS
+
+FileInputStream 
+FileOutputStream
+
+ 
+
+BIS & BOS
+高级流
+BufferedInputStream
+缓冲字节输入流
+
+BufferedOutputStream
+缓冲字节输出流
+
+使用缓冲流我们可以提高读写效率.因为其内部
+维护着一个缓冲区
+
+DIS&DOS
+
+DataInputStream
+可以方便的读取基本类型数据
+
+
+DateOutputStream
+可以方便的写基本类型数据
+
+
+
+
+
+
+
+
+
+
+
+
