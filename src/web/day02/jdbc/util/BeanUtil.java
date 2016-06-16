@@ -1,6 +1,7 @@
 package web.day02.jdbc.util;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class BeanUtil {
 
 	public static String getTableName(String bean) {
 		try {
-			String tableName = bean.substring(bean.lastIndexOf(".") + 1).toLowerCase();
+			String tableName = bean.substring(bean.lastIndexOf(".") + 1)
+					.toLowerCase();
 			return tableName;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,9 +53,9 @@ public class BeanUtil {
 			StringBuffer sb = new StringBuffer();
 			for (String str : typeAndPropertyList) {
 				String property = str.split("`")[1];
-				sb.append(property+", ");
+				sb.append(property + ", ");
 			}
-            sb.deleteCharAt(sb.toString().lastIndexOf(","));  
+			sb.deleteCharAt(sb.toString().lastIndexOf(","));
 			return sb.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,8 +71,8 @@ public class BeanUtil {
 	 */
 	public static String genCreateTableSql(String bean) {
 		List<String> typeAndPropertyList = getTypeAndPropertyList(bean);
-		StringBuffer sb = new StringBuffer("create table amumu_" + getTableName(bean)
-				+ "(\n");
+		StringBuffer sb = new StringBuffer("create table amumu_"
+				+ getTableName(bean) + "(\n");
 		for (String str : typeAndPropertyList) {
 			String[] typeAndProperty = str.split("`");
 			if (typeAndProperty[1].equals("id")) {
@@ -115,10 +117,10 @@ public class BeanUtil {
 	 */
 	public static String genInsertSql(String bean) {
 		String propertyList = getPropertyList(bean);
-		int count=propertyList.split(",").length;
+		int count = propertyList.split(",").length;
 		String wenhao = "";
 		for (int i = 0; i < count; i++) {
-			if (i == count- 1) {
+			if (i == count - 1) {
 				wenhao = wenhao + "?";
 			} else {
 				wenhao = wenhao + "?,";
@@ -127,4 +129,29 @@ public class BeanUtil {
 		return "insert into amumu_" + getTableName(bean) + "(" + propertyList
 				+ ") values(" + wenhao + ")";
 	}
+
+	public static Object setProperty(Object bean, String propertyName,Object value) {
+		Class clazz = bean.getClass();
+		try {
+			Field field = clazz.getDeclaredField(propertyName);
+			Method method = clazz.getDeclaredMethod(getSetterName(field.getName()), new Class[]{field.getType()});
+			return method.invoke(bean,value+"");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static String getGetterName(String propertyName) {
+		String method = "get" + propertyName.substring(0, 1).toUpperCase()
+				+ propertyName.substring(1);
+		return method;
+	}
+
+	public static String getSetterName(String propertyName) {
+		String method = "set" + propertyName.substring(0, 1).toUpperCase()
+				+ propertyName.substring(1);
+		return method;
+	}
+
 }
