@@ -4,80 +4,22 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-  <!-- 全局的初始化参数 -->
-  <context-param>
-  	<param-name>company</param-name>
-  	<param-value>amumu</param-value>
-  </context-param>
-  
-  <!-- 过滤器 -->
-    <filter>
-  	<filter-name>filter1</filter-name>
-  	<filter-class>web.day01.CommentFilter1</filter-class>
-  	<!-- 初始化参数 -->
-  	<init-param>
-  		<param-name>illegalStr</param-name>
-  		<param-value>猪</param-value>
-  	</init-param>
-  </filter>
-  <filter>
-  	<filter-name>filter2</filter-name>
-  	<filter-class>web.day01.CommentFilter2</filter-class>
-  </filter>
-  <!--  <filter-mapping>
-  	<filter-name>filter2</filter-name>
-  	<url-pattern>/comment</url-pattern>
-  </filter-mapping>-->
-  
-  <filter-mapping>
-  	<filter-name>filter1</filter-name>
-  	<url-pattern>/comment</url-pattern>
-  </filter-mapping>
-  <!-- 监听器 -->
-  <listener>
-  	<listener-class>web.day01.CountListener</listener-class>
-  </listener>
-  <servlet>
-    <servlet-name>SomeServlet</servlet-name>
-    <servlet-class>web.day01.SomeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SomeServlet</servlet-name>
-    <url-pattern>/some</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>OtherServlet</servlet-name>
-    <servlet-class>web.day01.OtherServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>web.day01.LogoutServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>CommentServlet</servlet-name>
-    <servlet-class>web.day01.CommentServlet</servlet-class>
-  </servlet>
   <servlet>
     <servlet-name>ActionServlet</servlet-name>
-    <servlet-class>web.day02.ajax.ActionServlet</servlet-class>
+    <servlet-class>web.ajax.ActionServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>web.servlet.day01.HelloServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
     <servlet-name>ActionServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
   <servlet-mapping>
-    <servlet-name>OtherServlet</servlet-name>
-    <url-pattern>/other</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-   <servlet-mapping>
-    <servlet-name>CommentServlet</servlet-name>
-    <url-pattern>/comment</url-pattern>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
   </servlet-mapping>
   <!-- 错误处理页面 -->
   <!-- 首页 -->

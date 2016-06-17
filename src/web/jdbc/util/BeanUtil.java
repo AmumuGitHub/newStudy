@@ -1,4 +1,4 @@
-package web.day02.jdbc.util;
+package web.jdbc.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

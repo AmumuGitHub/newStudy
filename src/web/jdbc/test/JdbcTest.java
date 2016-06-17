@@ -1,4 +1,4 @@
-package web.day02.jdbc.test;
+package web.jdbc.test;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -14,9 +14,9 @@ import java.util.UUID;
 
 import org.junit.Test;
 
-import web.day02.jdbc.entity.Emp;
-import web.day02.jdbc.util.BeanUtil;
-import web.day02.jdbc.util.DbUtil;
+import web.jdbc.entity.Emp;
+import web.jdbc.util.BeanUtil;
+import web.jdbc.util.DbUtil;
 
 public class JdbcTest {
 	// @Test

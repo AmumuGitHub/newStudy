@@ -1,4 +1,4 @@
-package web.day02.ajax;
+package web.ajax;
 
 import java.util.ArrayList;
 import java.util.List;

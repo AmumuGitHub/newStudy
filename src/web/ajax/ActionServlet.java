@@ -1,4 +1,4 @@
-package web.day02.ajax;
+package web.ajax;
 
 import java.io.IOException;
 import java.io.PrintWriter;

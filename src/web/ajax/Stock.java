@@ -1,4 +1,4 @@
-package web.day02.ajax;
+package web.ajax;
 
 public class Stock {
 	private String code;

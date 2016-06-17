@@ -1,4 +1,4 @@
-package web.day02.jdbc.entity;
+package web.jdbc.entity;
 
 public class Emp {
 	private String id;

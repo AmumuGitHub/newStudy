@@ -1,4 +1,4 @@
-package web.day02.jdbc.test;
+package web.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -10,7 +10,7 @@ import java.util.UUID;
 
 import org.junit.Test;
 
-import web.day02.jdbc.util.DbUtil;
+import web.jdbc.util.DbUtil;
 
 public class JdbcTest2 {
 

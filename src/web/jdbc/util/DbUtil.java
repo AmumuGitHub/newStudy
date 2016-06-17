@@ -1,4 +1,4 @@
-package web.day02.jdbc.util;
+package web.jdbc.util;
 
 import java.io.File;
 import java.io.InputStream;
