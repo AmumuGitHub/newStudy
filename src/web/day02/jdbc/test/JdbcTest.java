@@ -84,7 +84,7 @@ public class JdbcTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void testSelect2() {
 		try {
 			Emp emp = new Emp();
@@ -93,6 +93,25 @@ public class JdbcTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void testUpdate1() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try{
+				con = DbUtil.getConnection();
+				String sql = "update amumu_emp set sal=200.00 where ename='苍老师'";
+				ps = con.prepareStatement(sql);
+				int size = ps.executeUpdate(sql);
+				System.out.println("更新了"+size+"行记录");
+			}catch(Exception ex){
+				ex.printStackTrace();
+			}finally{
+				DbUtil.closeConnection(con, ps);
+		}
+	}
+	
+	
 
 	// 插入对象
 	public void insert(Object o) {
