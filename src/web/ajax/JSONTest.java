@@ -6,7 +6,7 @@ import java.util.List;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class JSONTest {
+public class JSONTest { 
 	/*
 	 * 	将java对象转换成一个json字符串
 	 * {'code':'600015','name':'山东高速','price':10}
